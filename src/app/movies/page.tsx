@@ -5,6 +5,7 @@ import MovieFetch, { getImage } from "@/lib/MovieFetch"
 import { Movies } from "@/models/MovieSchema"
 import addBlurredPosters from "@/lib/Base64"
 import MovieDetails from "./MovieDetails"
+import NextPage from "@/components/NextPage"
 
 export default async function Movies() {
   const page = 3

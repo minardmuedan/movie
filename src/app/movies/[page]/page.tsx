@@ -50,8 +50,6 @@ export default async function Movies({ params }: Props) {
                 width={200}
                 height={301}
                 priority
-                placeholder="blur"
-                blurDataURL={movie.blurDataUrl}
                 className="w-full rounded-md group-hover:scale-110 transition-transform ease-in"
               />
             </div>
