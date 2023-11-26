@@ -1,6 +1,3 @@
-import Image from "next/image"
-import Link from "next/link"
-
 import MovieFetch, { getImage } from "@/lib/MovieFetch"
 import { Movies } from "@/models/MovieSchema"
 import addBlurredPosters from "@/lib/Base64"
@@ -8,9 +5,8 @@ import MovieDetails from "./MovieDetails"
 import NextPage from "@/components/NextPage"
 
 export default async function Movies() {
-  const page = 3
   const movies: Movies = await MovieFetch(
-    `https://api.themoviedb.org/3/discover/movie?page=${page}&`
+    `https://api.themoviedb.org/3/discover/movie?page=1&`
   )
 
   if (!movies.results[0].title) {
@@ -35,6 +31,7 @@ export default async function Movies() {
           />
         ))}
       </div>
+      <NextPage page={2} />
     </main>
   )
 }

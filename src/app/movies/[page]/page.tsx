@@ -6,6 +6,7 @@ import { Movies } from "@/models/MovieSchema"
 import addBlurredPosters from "@/lib/Base64"
 import { Frown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import NextPage from "@/components/NextPage"
 
 type Props = {
   params: {
@@ -36,8 +37,8 @@ export default async function Movies({ params }: Props) {
   const moviesWblurredPosters = await addBlurredPosters(movies)
 
   return (
-    <main>
-      <div className="h-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 p-5">
+    <main className="flex flex-col">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 p-5">
         {moviesWblurredPosters.map((movie) => (
           <div
             key={movie.id}
@@ -57,6 +58,7 @@ export default async function Movies({ params }: Props) {
           </div>
         ))}
       </div>
+      <NextPage page={Number(params.page) + 1} />
     </main>
   )
 }
